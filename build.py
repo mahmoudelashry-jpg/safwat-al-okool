@@ -5,7 +5,7 @@ Run: python3 build.py   -> writes <slug>/index.html and index.html
 import json, html, os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-BOOK = "صفوة العقول الإنسانية"
+BOOK = "برهان صفوة العقول الإنسانية"
 
 def images_of(slug):
     d = os.path.join(ROOT, slug, "img")
