@@ -7,7 +7,6 @@
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#14110d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://lh3.googleusercontent.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#14110d;--ink:#efe6d4;--muted:#a89a80;--line:#3a3226;--gold:#c9a45c}
@@ -46,12 +45,12 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <div class="count">6 صور · اضغط على أي صورة لتكبيرها</div>
 </header>
 <main>
-<figure><img src="https://lh3.googleusercontent.com/d/1g3X62PijAfAorkmoZBX4ziwvgtR7PNbi=w1200" alt="Xenophanes of Colophon — 1" loading="eager" referrerpolicy="no-referrer"><span>1</span></figure>
-<figure><img src="https://lh3.googleusercontent.com/d/1qMJSIrQ6Fl6yssive_pWnJnOk_GzyNPg=w1200" alt="Xenophanes of Colophon — 2" loading="eager" referrerpolicy="no-referrer"><span>2</span></figure>
-<figure><img src="https://lh3.googleusercontent.com/d/1owBJoi642q40Fq1eTvGKx9E-xlq0vgoL=w1200" alt="Xenophanes of Colophon — 3" loading="lazy" referrerpolicy="no-referrer"><span>3</span></figure>
-<figure><img src="https://lh3.googleusercontent.com/d/11O54cyuZobVsCXUCWLAIlrpVgQlXTS8N=w1200" alt="Xenophanes of Colophon — 4" loading="lazy" referrerpolicy="no-referrer"><span>4</span></figure>
-<figure><img src="https://lh3.googleusercontent.com/d/1yZPl9LO50ExrTvFYiXb01FdV65AaETjJ=w1200" alt="Xenophanes of Colophon — 5" loading="lazy" referrerpolicy="no-referrer"><span>5</span></figure>
-<figure><img src="https://lh3.googleusercontent.com/d/1HJFbEvHRKGXI0p7k7TlpRPxmvZFWkDY_=w1200" alt="Xenophanes of Colophon — 6" loading="lazy" referrerpolicy="no-referrer"><span>6</span></figure>
+<figure><img src="img/01.jpg" alt="Xenophanes of Colophon — 1" loading="eager"><span>1</span></figure>
+<figure><img src="img/02.jpg" alt="Xenophanes of Colophon — 2" loading="eager"><span>2</span></figure>
+<figure><img src="img/03.jpg" alt="Xenophanes of Colophon — 3" loading="lazy"><span>3</span></figure>
+<figure><img src="img/04.jpg" alt="Xenophanes of Colophon — 4" loading="lazy"><span>4</span></figure>
+<figure><img src="img/05.jpg" alt="Xenophanes of Colophon — 5" loading="lazy"><span>5</span></figure>
+<figure><img src="img/06.jpg" alt="Xenophanes of Colophon — 6" loading="lazy"><span>6</span></figure>
 </main>
 <footer>صفوة العقول الإنسانية</footer>
 <div id="lb" role="dialog" aria-modal="true">
@@ -62,7 +61,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <div id="ct"></div>
 </div>
 <script>
-const big=["https://lh3.googleusercontent.com/d/1g3X62PijAfAorkmoZBX4ziwvgtR7PNbi=w2400", "https://lh3.googleusercontent.com/d/1qMJSIrQ6Fl6yssive_pWnJnOk_GzyNPg=w2400", "https://lh3.googleusercontent.com/d/1owBJoi642q40Fq1eTvGKx9E-xlq0vgoL=w2400", "https://lh3.googleusercontent.com/d/11O54cyuZobVsCXUCWLAIlrpVgQlXTS8N=w2400", "https://lh3.googleusercontent.com/d/1yZPl9LO50ExrTvFYiXb01FdV65AaETjJ=w2400", "https://lh3.googleusercontent.com/d/1HJFbEvHRKGXI0p7k7TlpRPxmvZFWkDY_=w2400"];
+const big=["img/01.jpg", "img/02.jpg", "img/03.jpg", "img/04.jpg", "img/05.jpg", "img/06.jpg"];
 const lb=document.getElementById('lb'),im=document.getElementById('lbi'),ct=document.getElementById('ct');
 let i=0;
 function show(k){i=(k+big.length)%big.length;im.src=big[i];ct.textContent=(i+1)+' من '+big.length;}

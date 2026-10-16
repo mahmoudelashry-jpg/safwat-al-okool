@@ -7,8 +7,9 @@ import json, html, os
 ROOT = os.path.dirname(os.path.abspath(__file__))
 BOOK = "صفوة العقول الإنسانية"
 
-def img_url(fid, w):
-    return f"https://lh3.googleusercontent.com/d/{fid}=w{w}"
+def images_of(slug):
+    d = os.path.join(ROOT, slug, "img")
+    return sorted(f for f in os.listdir(d) if f.lower().endswith((".jpg", ".jpeg", ".png", ".webp")))
 
 PAGE = """<!doctype html>
 <html lang="ar" dir="rtl">
@@ -19,7 +20,6 @@ PAGE = """<!doctype html>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#14110d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://lh3.googleusercontent.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
 :root{{--bg:#14110d;--ink:#efe6d4;--muted:#a89a80;--line:#3a3226;--gold:#c9a45c}}
@@ -106,15 +106,16 @@ li a{{display:block;padding:16px;border-bottom:1px solid #3a3226;color:inherit;t
 def main():
     chars = json.load(open(os.path.join(ROOT, "characters.json"), encoding="utf-8"))
     for c in chars:
+        c["images"] = images_of(c["slug"])
         figs = "\n".join(
-            f'<figure><img src="{img_url(f,1200)}" alt="{html.escape(c["name"])} — {k}" loading="{"eager" if k<3 else "lazy"}" referrerpolicy="no-referrer"><span>{k}</span></figure>'
+            f'<figure><img src="img/{f}" alt="{html.escape(c["name"])} — {k}" loading="{"eager" if k<3 else "lazy"}"><span>{k}</span></figure>'
             for k, f in enumerate(c["images"], 1))
         page = PAGE.format(
             title=html.escape(c.get("name_ar") or c["name"]) + " — " + BOOK, book=BOOK,
             h1=html.escape(c.get("name_ar") or c["name"]),
             sub=f'<div class="en">{html.escape(c["name"])}</div>' if c.get("name_ar") else "",
             n=len(c["images"]), figures=figs,
-            big=json.dumps([img_url(f, 2400) for f in c["images"]]))
+            big=json.dumps(["img/" + f for f in c["images"]]))
         os.makedirs(os.path.join(ROOT, c["slug"]), exist_ok=True)
         open(os.path.join(ROOT, c["slug"], "index.html"), "w", encoding="utf-8").write(page)
     items = "".join(f'<li><a href="{c["slug"]}/">{html.escape(c["name"])}</a></li>' for c in chars)
