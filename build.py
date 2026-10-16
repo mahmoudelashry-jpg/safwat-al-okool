@@ -72,7 +72,7 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 const big={big};
 const lb=document.getElementById('lb'),im=document.getElementById('lbi'),ct=document.getElementById('ct');
 let i=0;
-function show(k){{i=(k+big.length)%big.length;im.src=big[i];ct.textContent=(i+1)+' / '+big.length;}}
+function show(k){{i=(k+big.length)%big.length;im.src=big[i];ct.textContent=(i+1)+' من '+big.length;}}
 function open_(k){{show(k);lb.classList.add('on');document.body.style.overflow='hidden';}}
 function close_(){{lb.classList.remove('on');document.body.style.overflow='';}}
 document.querySelectorAll('figure').forEach((f,k)=>f.addEventListener('click',()=>open_(k)));
