@@ -2,6 +2,96 @@
   {
     "slug": "01-xenophanes",
     "name": "Xenophanes of Colophon",
-    "name_ar": "إكسينوفان الكولوفوني"
+    "kicker": "حجة صفوة العقول الإنسانية • البطاقة ١",
+    "title": "إكسينوفان الكولوفوني وحجة التنزيه",
+    "intro": [
+      "النصوص التي يقتبسها الكتاب بلغتها الأصلية اليونانية، مع ترجمتها الإنجليزية المعتمدة"
+    ],
+    "sections": [
+      {
+        "n": 1,
+        "caption": "الإنسان يصنع آلهته على صورته",
+        "images": [
+          {
+            "lang": "gr",
+            "file": "01-gr.jpg"
+          },
+          {
+            "lang": "en",
+            "file": "01-en.jpg"
+          }
+        ]
+      },
+      {
+        "n": 2,
+        "caption": "الإله الحق واحد لا يشبه الفانين",
+        "images": [
+          {
+            "lang": "gr",
+            "file": "02-gr.jpg"
+          },
+          {
+            "lang": "en",
+            "file": "02-en.jpg"
+          }
+        ]
+      },
+      {
+        "n": 3,
+        "caption": "صفاته علم شامل",
+        "images": [
+          {
+            "lang": "gr",
+            "file": "03-gr.jpg"
+          },
+          {
+            "lang": "en",
+            "file": "03-en.jpg"
+          }
+        ]
+      },
+      {
+        "n": 4,
+        "caption": "صفاته قدرة بلا عناء",
+        "images": [
+          {
+            "lang": "gr",
+            "file": "04-gr.jpg"
+          },
+          {
+            "lang": "en",
+            "file": "04-en.jpg"
+          }
+        ]
+      },
+      {
+        "n": 5,
+        "caption": "صفاته ثبات لا يتغير",
+        "images": [
+          {
+            "lang": "gr",
+            "file": "05-gr.jpg"
+          },
+          {
+            "lang": "en",
+            "file": "05-en.jpg"
+          }
+        ]
+      },
+      {
+        "n": 6,
+        "caption": "شهادة أرسطو",
+        "images": [
+          {
+            "lang": "gr",
+            "file": "06-gr.jpg"
+          },
+          {
+            "lang": "en",
+            "file": "06-en.jpg"
+          }
+        ]
+      }
+    ]
   }
 ]
