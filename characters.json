@@ -165,11 +165,13 @@
     "slug": "03-socrates",
     "num": 3,
     "name": "Socrates",
-    "name_ar": "",
-    "argument": "",
+    "name_ar": "سقراط",
+    "argument": "البرهان الغائي",
     "kicker": "حجة صفوة العقول الإنسانية • البطاقة ٣",
-    "title": "",
-    "intro": [],
+    "title": "سقراط والبرهان الغائي",
+    "intro": [
+      "النصوص التي يقتبسها الكتاب بلغتها الأصلية اليونانية، مع ترجمتها الإنجليزية"
+    ],
     "sections": [
       {
         "n": 1,
@@ -214,10 +216,7 @@
         ]
       }
     ],
-    "warnings": [
-      "card says «حجة صفوة العقول الإنسانية • البطاقة ٢» but folder is 3",
-      "Word card is still a copy of card 2"
-    ]
+    "warnings": []
   },
   {
     "slug": "04-plato",
