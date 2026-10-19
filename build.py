@@ -5,7 +5,7 @@ Run: python3 build.py   -> writes <slug>/index.html and index.html
 import json, html, os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
-BOOK = "برهان صفوة العقول الإنسانية"
+BOOK = "حجة صفوة العقول الإنسانية"
 
 LANG = {
     "gr": "النص الأصلي · اليونانية",
@@ -38,6 +38,7 @@ header{{text-align:center;padding:44px 20px 30px;border-bottom:1px solid var(--l
 .kicker{{font-size:15px;color:var(--gold);letter-spacing:.03em}}
 .orn{{width:56px;height:1px;background:var(--gold);margin:14px auto;opacity:.7}}
 h1{{font-weight:700;font-size:clamp(28px,7.5vw,44px);line-height:1.35}}
+.arg{{color:var(--gold);font-size:clamp(20px,5.2vw,26px);margin-top:10px}}
 .en{{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:500;font-size:clamp(18px,4.6vw,23px);color:var(--muted);margin-top:4px;direction:ltr}}
 .intro{{color:#d8ccb4;font-size:clamp(16px,4.2vw,18px);margin:16px auto 0;max-width:560px}}
 main{{max-width:760px;margin:0 auto;padding:10px 16px 56px}}
@@ -69,8 +70,9 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 <header>
   <div class="kicker">{kicker}</div>
   <div class="orn"></div>
-  <h1>{title}</h1>
+  <h1>{name_ar}</h1>
   <div class="en">{name}</div>
+  {argument}
   {intro}
 </header>
 <main>
@@ -138,6 +140,8 @@ def render(c):
     intro = "".join(f'<p class="intro">{e(p)}</p>' for p in c.get("intro", []))
     return PAGE.format(
         book=BOOK, kicker=e(c["kicker"]), title=e(c["title"]), name=e(c["name"]),
+        name_ar=e(c.get("name_ar") or c["title"]),
+        argument=f'<div class="arg">{e(c["argument"])}</div>' if c.get("argument") else "",
         intro=intro, sections="\n".join(secs),
         big=json.dumps(big, ensure_ascii=False))
 

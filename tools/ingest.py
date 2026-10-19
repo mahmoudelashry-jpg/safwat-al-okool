@@ -13,6 +13,8 @@ import json, os, re, shutil, sys, zipfile, unicodedata
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 IMG_RE = re.compile(r"^(\d+)\s*([A-Za-z]{2,3})\s*-\s*(.+?)\.(jpe?g|png|webp)$", re.I)
 # original-language codes sort before translations
+# "إكسينوفان الكولوفوني وحجة التنزيه" -> name / "حجة التنزيه"
+SPLIT_RE = re.compile(r"^(.+?)\s+و((?:حجة|برهان|دليل)\b.*)$")
 ORDER = {"gr": 0, "la": 0, "ar": 0, "he": 0, "de": 1, "fr": 1, "en": 2}
 
 
@@ -79,11 +81,18 @@ def main():
             imgs.append({"lang": im["lang"], "file": fn})
         out_sections.append({"n": n, "caption": s["caption"], "images": imgs})
 
+    title = paras[1]
+    sp = SPLIT_RE.match(title)
+    name_ar, argument = (sp.group(1).strip(), sp.group(2).strip()) if sp else (title, "")
+    if not sp:
+        print(f"  ! {folder}: could not split title into name + argument: {title}")
     entry = {
         "slug": slug,
         "name": name_en,
+        "name_ar": name_ar,
+        "argument": argument,
         "kicker": paras[0],
-        "title": paras[1],
+        "title": title,
         "intro": paras[2:],
         "sections": out_sections,
     }
