@@ -12,8 +12,10 @@ LANG = {
     "la": "النص الأصلي · اللاتينية",
     "ar": "النص الأصلي · العربية",
     "he": "النص الأصلي · العبرية",
-    "de": "الألمانية",
-    "fr": "الفرنسية",
+    "de": "النص الأصلي · الألمانية",
+    "it": "النص الأصلي · الإيطالية",
+    "fr": "النص الأصلي · الفرنسية",
+    "": "النص الأصلي",
     "en": "الترجمة الإنجليزية",
 }
 AR_DIGITS = str.maketrans("0123456789", "٠١٢٣٤٥٦٧٨٩")
@@ -24,7 +26,7 @@ PAGE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>{title} — {book}</title>
+<title>{name_ar} — {book}</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#14110d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,7 +49,8 @@ section:last-child{{border-bottom:0}}
 h2{{display:flex;align-items:baseline;gap:12px;font-size:clamp(21px,5.4vw,27px);font-weight:700;margin-bottom:16px}}
 h2 b{{color:var(--gold);font-weight:400;font-size:.85em;min-width:1.4em}}
 .pair{{display:grid;gap:18px}}
-@media (min-width:900px){{main{{max-width:1180px}}.pair{{grid-template-columns:1fr 1fr}}}}
+.pair.one{{max-width:760px;margin:0 auto}}
+@media (min-width:900px){{main{{max-width:1180px}}.pair:not(.one){{grid-template-columns:1fr 1fr}}}}
 figure{{cursor:zoom-in}}
 figcaption{{font-size:14px;color:var(--muted);margin-bottom:7px}}
 .frame{{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;aspect-ratio:1372/968}}
@@ -71,7 +74,7 @@ footer{{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <div class="kicker">{kicker}</div>
   <div class="orn"></div>
   <h1>{name_ar}</h1>
-  <div class="en">{name}</div>
+  {en}
   {argument}
   {intro}
 </header>
@@ -126,22 +129,24 @@ def render(c):
     big, secs, k = [], [], 0
     for s in c["sections"]:
         figs = []
+        single = len(s["images"]) == 1
         for im in s["images"]:
-            label = LANG.get(im["lang"], im["lang"].upper())
+            label = "" if (single and not im["lang"]) else LANG.get(im["lang"], im["lang"].upper())
             src = f"img/{im['file']}"
             figs.append(
-                f'<figure><figcaption>{e(label)}</figcaption><div class="frame">'
+                f'<figure>{f"<figcaption>{e(label)}</figcaption>" if label else ""}<div class="frame">'
                 f'<img src="{src}" alt="{e(s["caption"])} — {e(label)}" loading="{"eager" if k < 2 else "lazy"}">'
                 f"</div></figure>")
-            big.append([src, f'{s["caption"]} — {label}'])
+            big.append([src, f'{s["caption"]} — {label}' if label else s["caption"]])
             k += 1
         num = str(s["n"]).translate(AR_DIGITS)
-        secs.append(f'<section><h2><b>{num}</b>{e(s["caption"])}</h2><div class="pair">{"".join(figs)}</div></section>')
+        secs.append(f'<section><h2><b>{num}</b>{e(s["caption"])}</h2><div class="pair{' one' if single else ''}">{"".join(figs)}</div></section>')
     intro = "".join(f'<p class="intro">{e(p)}</p>' for p in c.get("intro", []))
     return PAGE.format(
         book=BOOK, kicker=e(c["kicker"]), title=e(c["title"]), name=e(c["name"]),
-        name_ar=e(c.get("name_ar") or c["title"]),
+        name_ar=e(c.get("name_ar") or c["name"]),
         argument=f'<div class="arg">{e(c["argument"])}</div>' if c.get("argument") else "",
+        en=f'<div class="en">{e(c["name"])}</div>' if c.get("name_ar") else "",
         intro=intro, sections="\n".join(secs),
         big=json.dumps(big, ensure_ascii=False))
 
@@ -151,7 +156,7 @@ def main():
     for c in chars:
         os.makedirs(os.path.join(ROOT, c["slug"]), exist_ok=True)
         open(os.path.join(ROOT, c["slug"], "index.html"), "w", encoding="utf-8").write(render(c))
-    items = "".join(f'<li><a href="{c["slug"]}/">{e(c["title"])}</a></li>' for c in chars)
+    items = "".join(f'<li><a href="{c["slug"]}/">{e(c.get("name_ar") or c["name"])}</a></li>' for c in chars)
     open(os.path.join(ROOT, "index.html"), "w", encoding="utf-8").write(INDEX.format(book=BOOK, items=items))
     print("built", len(chars), "pages")
 
