@@ -22,6 +22,9 @@ NAME_FIX = {"Immanuel Kan": "Immanuel Kant", "voltaire": "Voltaire"}
 # originals first, English translation last
 ORDER = {"": 0, "gr": 0, "la": 0, "de": 0, "it": 0, "fr": 0, "en": 2}
 # first " و" after the name starts the argument: "أفلاطون وبرهان الحركة"
+# prefer the " و" that starts an argument word (so "مونتغمري وات" stays whole)
+KW = r"(?:ال)?(?:حجة|حجج|برهان|براهين|دليل|دليلا|طرق|قياس|شهادة|شهادته|بطل)"
+SPLIT_KW = re.compile(r"^(.+?)\s+و(" + KW + r"(?:\s.*)?)$")
 SPLIT_RE = re.compile(r"^(\S+(?:\s+\S+)*?)\s+و(\S.*)$")
 
 
@@ -68,7 +71,7 @@ def main():
         cm = re.search(r"البطاقة\s*([\d٠-٩]+)", paras[0])
         if cm and int(cm.group(1).translate(str.maketrans("٠١٢٣٤٥٦٧٨٩", "0123456789"))) != num:
             warn.append(f"card says «{paras[0]}» but folder is {num}")
-    sp = SPLIT_RE.match(title) if title else None
+    sp = (SPLIT_KW.match(title) or SPLIT_RE.match(title)) if title else None
     name_ar, argument = (sp.group(1).strip(), sp.group(2).strip()) if sp else (title, "")
     if title and not sp:
         warn.append(f"could not split title: {title}")
