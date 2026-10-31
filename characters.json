@@ -310,6 +310,10 @@
             "file": "01-gr.jpg"
           },
           {
+            "lang": "gr",
+            "file": "01-gr-2.jpg"
+          },
+          {
             "lang": "en",
             "file": "01-en.jpg"
           }
@@ -319,10 +323,6 @@
         "n": 2,
         "caption": "نص البرهان الثاني",
         "images": [
-          {
-            "lang": "gr",
-            "file": "02-gr.jpg"
-          },
           {
             "lang": "en",
             "file": "02-en.jpg"
@@ -921,6 +921,10 @@
           {
             "lang": "",
             "file": "01-x.jpg"
+          },
+          {
+            "lang": "",
+            "file": "01-x-2.jpg"
           }
         ]
       }
@@ -1904,6 +1908,10 @@
           {
             "lang": "",
             "file": "02-x.jpg"
+          },
+          {
+            "lang": "",
+            "file": "02-x-2.jpg"
           }
         ]
       }
@@ -2411,6 +2419,10 @@
           {
             "lang": "",
             "file": "02-x.jpg"
+          },
+          {
+            "lang": "",
+            "file": "02-x-2.jpg"
           }
         ]
       }
@@ -2481,6 +2493,10 @@
           {
             "lang": "",
             "file": "03-x.jpg"
+          },
+          {
+            "lang": "",
+            "file": "03-x-2.jpg"
           }
         ]
       }

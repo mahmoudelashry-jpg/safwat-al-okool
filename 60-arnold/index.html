@@ -58,7 +58,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 <main>
 <section><h2><b>١</b>البرهان الأول برهان شهادة الأقربين</h2><div class="pair one"><figure><div class="frame"><img src="img/01-x.jpg" alt="البرهان الأول برهان شهادة الأقربين — " loading="eager"></div></figure></div></section>
 <section><h2><b>٢</b>البرهان الثاني برهان الثبات</h2><div class="pair one"><figure><div class="frame"><img src="img/02-x.jpg" alt="البرهان الثاني برهان الثبات — " loading="eager"></div></figure></div></section>
-<section><h2><b>٣</b>البرهان الثالث برهان الانتشار بالإقناع</h2><div class="pair one"><figure><div class="frame"><img src="img/03-x.jpg" alt="البرهان الثالث برهان الانتشار بالإقناع — " loading="lazy"></div></figure></div></section>
+<section><h2><b>٣</b>البرهان الثالث برهان الانتشار بالإقناع</h2><div class="pair"><figure><figcaption>النص الأصلي</figcaption><div class="frame"><img src="img/03-x.jpg" alt="البرهان الثالث برهان الانتشار بالإقناع — النص الأصلي" loading="lazy"></div></figure><figure><figcaption>النص الأصلي</figcaption><div class="frame"><img src="img/03-x-2.jpg" alt="البرهان الثالث برهان الانتشار بالإقناع — النص الأصلي" loading="lazy"></div></figure></div></section>
 </main>
 <footer>حجة صفوة العقول الإنسانية</footer>
 <div id="lb" role="dialog" aria-modal="true">
@@ -69,7 +69,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <button id="nx" aria-label="التالي">‹</button>
 </div>
 <script>
-const big=[["img/01-x.jpg", "البرهان الأول برهان شهادة الأقربين"], ["img/02-x.jpg", "البرهان الثاني برهان الثبات"], ["img/03-x.jpg", "البرهان الثالث برهان الانتشار بالإقناع"]];
+const big=[["img/01-x.jpg", "البرهان الأول برهان شهادة الأقربين"], ["img/02-x.jpg", "البرهان الثاني برهان الثبات"], ["img/03-x.jpg", "البرهان الثالث برهان الانتشار بالإقناع — النص الأصلي"], ["img/03-x-2.jpg", "البرهان الثالث برهان الانتشار بالإقناع — النص الأصلي"]];
 const lb=document.getElementById('lb'),im=document.getElementById('lbi'),cap=document.getElementById('cap'),ct=document.getElementById('ct');
 let i=0;
 function show(k){i=(k+big.length)%big.length;im.src=big[i][0];cap.textContent=big[i][1];ct.textContent=(i+1)+' من '+big.length;}
