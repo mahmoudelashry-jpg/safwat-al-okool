@@ -58,7 +58,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
 <main>
 <section><h2><b>١</b>القرآن ذروة البيان العربي ومعجزة دائمة</h2><div class="pair one"><figure><div class="frame"><img src="img/01-x.jpg" alt="القرآن ذروة البيان العربي ومعجزة دائمة — " loading="eager"></div></figure></div></section>
 <section><h2><b>٢</b>التحدي بالقرآن</h2><div class="pair one"><figure><div class="frame"><img src="img/02-x.jpg" alt="التحدي بالقرآن — " loading="eager"></div></figure></div></section>
-<section><h2><b>٣</b>شهادة لبيد بن ربيعة</h2><div class="pair one"><figure><div class="frame"><img src="img/03-x.jpg" alt="شهادة لبيد بن ربيعة — " loading="lazy"></div></figure></div></section>
+<section><h2><b>٣</b>شهادة لبيد بن ربيعة</h2><div class="pair"><figure><figcaption>النص الأصلي</figcaption><div class="frame"><img src="img/03-x.jpg" alt="شهادة لبيد بن ربيعة — النص الأصلي" loading="lazy"></div></figure><figure><figcaption>النص الأصلي</figcaption><div class="frame"><img src="img/03-x-2.jpg" alt="شهادة لبيد بن ربيعة — النص الأصلي" loading="lazy"></div></figure></div></section>
 <section><h2><b>٤</b>جمال الأسلوب وسموّه</h2><div class="pair one"><figure><div class="frame"><img src="img/04-x.jpg" alt="جمال الأسلوب وسموّه — " loading="lazy"></div></figure></div></section>
 <section><h2><b>٥</b>السجع وأثره في أدب العرب</h2><div class="pair one"><figure><div class="frame"><img src="img/05-x.jpg" alt="السجع وأثره في أدب العرب — " loading="lazy"></div></figure></div></section>
 <section><h2><b>٦</b>أثر البيان في قبول العقيدة</h2><div class="pair one"><figure><div class="frame"><img src="img/06-x.jpg" alt="أثر البيان في قبول العقيدة — " loading="lazy"></div></figure></div></section>
@@ -73,7 +73,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <button id="nx" aria-label="التالي">‹</button>
 </div>
 <script>
-const big=[["img/01-x.jpg", "القرآن ذروة البيان العربي ومعجزة دائمة"], ["img/02-x.jpg", "التحدي بالقرآن"], ["img/03-x.jpg", "شهادة لبيد بن ربيعة"], ["img/04-x.jpg", "جمال الأسلوب وسموّه"], ["img/05-x.jpg", "السجع وأثره في أدب العرب"], ["img/06-x.jpg", "أثر البيان في قبول العقيدة"], ["img/07-x.jpg", "بيانٌ أخذ بعقول السامعين"]];
+const big=[["img/01-x.jpg", "القرآن ذروة البيان العربي ومعجزة دائمة"], ["img/02-x.jpg", "التحدي بالقرآن"], ["img/03-x.jpg", "شهادة لبيد بن ربيعة — النص الأصلي"], ["img/03-x-2.jpg", "شهادة لبيد بن ربيعة — النص الأصلي"], ["img/04-x.jpg", "جمال الأسلوب وسموّه"], ["img/05-x.jpg", "السجع وأثره في أدب العرب"], ["img/06-x.jpg", "أثر البيان في قبول العقيدة"], ["img/07-x.jpg", "بيانٌ أخذ بعقول السامعين"]];
 const lb=document.getElementById('lb'),im=document.getElementById('lbi'),cap=document.getElementById('cap'),ct=document.getElementById('ct');
 let i=0;
 function show(k){i=(k+big.length)%big.length;im.src=big[i][0];cap.textContent=big[i][1];ct.textContent=(i+1)+' من '+big.length;}
