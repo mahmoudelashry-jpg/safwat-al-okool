@@ -56,7 +56,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <p class="intro">النصوص التي يقتبسها الكتاب بلغتها الأصلية الإنجليزية</p>
 </header>
 <main>
-<section><h2><b>١</b>نص الدليل</h2><div class="pair one"><figure><div class="frame"><img src="img/01-x.jpg" alt="نص الدليل — " loading="eager"></div></figure></div></section>
+<section><h2><b>١</b>نص الدليل</h2><div class="pair"><figure><figcaption>النص الأصلي</figcaption><div class="frame"><img src="img/01-x.jpg" alt="نص الدليل — النص الأصلي" loading="eager"></div></figure><figure><figcaption>النص الأصلي</figcaption><div class="frame"><img src="img/01-x-2.jpg" alt="نص الدليل — النص الأصلي" loading="eager"></div></figure></div></section>
 </main>
 <footer>حجة صفوة العقول الإنسانية</footer>
 <div id="lb" role="dialog" aria-modal="true">
@@ -67,7 +67,7 @@ footer{text-align:center;color:var(--muted);font-size:13px;padding:0 16px 40px}
   <button id="nx" aria-label="التالي">‹</button>
 </div>
 <script>
-const big=[["img/01-x.jpg", "نص الدليل"]];
+const big=[["img/01-x.jpg", "نص الدليل — النص الأصلي"], ["img/01-x-2.jpg", "نص الدليل — النص الأصلي"]];
 const lb=document.getElementById('lb'),im=document.getElementById('lbi'),cap=document.getElementById('cap'),ct=document.getElementById('ct');
 let i=0;
 function show(k){i=(k+big.length)%big.length;im.src=big[i][0];cap.textContent=big[i][1];ct.textContent=(i+1)+' من '+big.length;}
